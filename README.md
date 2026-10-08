@@ -2,6 +2,8 @@
 
 ConnectHub is a Django-based social media platform developed as a learning project. It allows users to create accounts, manage profiles, share posts, comment, like posts, and follow other users.
 
+ 🌐 [Live Demo](https://connecthub-social-media-platform.onrender.com/login/?next=/)
+
 ## Features
 
 * User Registration
