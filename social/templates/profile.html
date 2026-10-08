@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - ConnectHub</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="profile-container">
+
+        <div class="profile-card">
+
+            <div class="profile-image-section">
+
+                {% if profile_user.profile.profile_image %}
+
+                    <img src="{{ profile_user.profile.profile_image.url }}" alt="Profile Image" class="profile-image">
+
+                {% else %}
+
+                    <div class="profile-image-placeholder">
+                        {{ profile_user.username|first|upper }}
+                    </div>
+
+                {% endif %}
+
+                <form method="POST" enctype="multipart/form-data" action="{% url 'update_profile_image' %}">
+                    {% csrf_token %}
+
+                    <input type="file" name="profile_image" accept="image/*" required>
+
+                    <button type="submit">Upload Image</button>
+                </form>
+
+            </div>
+
+            <div class="profile-header">
+
+                <h1>{{ profile_user.first_name }} {{ profile_user.last_name }}</h1>
+
+                <p class="profile-username">@{{ profile_user.username }}</p>
+
+            </div>
+
+            <div class="profile-info">
+
+                <p><strong>First Name:</strong> {{ profile_user.first_name }}</p>
+
+                <p><strong>Last Name:</strong> {{ profile_user.last_name }}</p>
+
+                <p><strong>Username:</strong> {{ profile_user.username }}</p>
+
+                <p><strong>Email:</strong> {{ profile_user.email }}</p>
+
+            </div>
+
+            <div class="profile-stats">
+
+                <div class="stat">
+                    <span class="stat-number">{{ followers_count }}</span>
+                    <span class="stat-label">Followers</span>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-number">{{ following_count }}</span>
+                    <span class="stat-label">Following</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <h2 class="posts-title">My Posts</h2>
+
+        {% for post in user_posts %}
+
+            <div class="profile-post">
+
+                <p>{{ post.content }}</p>
+
+                <small>{{ post.created_at }}</small>
+
+            </div>
+
+        {% empty %}
+
+            <div class="no-posts">
+                <p>You haven't created any posts yet.</p>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+    <script src="{% static 'js/profile.js' %}"></script>
+
+</body>
+</html>

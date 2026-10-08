@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #333333;
+}
+
+.home-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.welcome-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.welcome-section h1 {
+    font-size: 26px;
+    color: #333333;
+}
+
+.feed-title {
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.post-card {
+    background: white;
+    padding: 22px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.post-header h3 {
+    color: #667eea;
+    margin-bottom: 8px;
+}
+
+.post-content {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.post-date {
+    color: #888888;
+    font-size: 13px;
+}
+
+.post-actions {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eeeeee;
+}
+
+.like-button {
+    text-decoration: none;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.like-button:hover {
+    color: #5568d8;
+}
+
+.likes-count {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666666;
+}
+
+.comments-title {
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+.comment {
+    background: #f5f7fb;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.comment-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.comment-form input {
+    flex: 1;
+    padding: 11px;
+    border: 1px solid #dddddd;
+    border-radius: 7px;
+    outline: none;
+}
+
+.comment-form input:focus {
+    border-color: #667eea;
+}
+
+.comment-form button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 7px;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.comment-form button:hover {
+    background: #5568d8;
+}
+
+.no-posts {
+    background: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 12px;
+    color: #777777;
+}
+
+@media (max-width: 600px) {
+    .home-container {
+        padding: 0 12px;
+    }
+
+    .comment-form {
+        flex-direction: column;
+    }
+
+    .comment-form button {
+        width: 100%;
+    }
+}
